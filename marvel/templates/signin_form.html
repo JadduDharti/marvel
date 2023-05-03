@@ -1,0 +1,29 @@
+<form method="POST">
+
+    {{ form.hidden_tag() }}
+    <div class="form-group">
+        <br />
+        <fieldset id="username-field">
+            {{ form.username(class = "form-control", placeholder = "Please Username Here...") }}
+        </fieldset>
+        <br />
+        <fieldset id="email-field">
+            {{ form.email(class = "form-control", placeholder = "Please Email Here...") }}
+        </fieldset>
+        <br />
+        <fieldset id="password-field">
+            {{ form.password(class = "form-control", placeholder = "Please Password Here...") }}
+        </fieldset>
+        <br />
+        <!-- Submit button -->
+        <br>
+        {{ form.submit_button(class="btn btn-primary btn-block mt-2 mb-3") }}
+        <br />
+    </div>
+
+</form>
+
+
+
+
+

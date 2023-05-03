@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<!-- Flask Flash Message to user  -->
+<!-- {% with messages = get_flashed_messages(with_categories = true) %}
+{% if messages %}
+{% for cat, msg in messages %}
+{% if cat == 'auth-success' %}
+<div class="container">
+    {{ msg }}
+    <button type="button" class="close" data-dismiss="alert"
+        onclick="this.parentElement.style.display='none'">&times;</button>
+</div>
+{% endif %}
+{% endfor %}
+{% endif %}
+{% endwith %} -->
+
+<header class="hero-section">
+    <h1 class="header-text">Welcome to Marvel Characters,<br /> {{ current_user.email }}</h1>
+    <br /><br />
+    <main class="container character_form">
+        <div class="row">
+            <aside class="col-12">
+                <h2>Create A Character!</h2>
+                {% include 'character_form.html' %}
+            </aside>
+        </div>
+    </main>
+
+</header>
+
+<div class="container">
+    <h3>Your favorite Marvel characters:</h3>
+
+    <div class="row mt-4" style="color: black;">
+
+        {% for character in characters %}
+        <div class="col-3 mb-4" style="width: 50%;">
+
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="{{ character.image_url }}" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">{{ character.name }}</h5>
+                    <p class="card-text">{{ character.description }}</p>
+                    <p><strong>Comics appeared in:</strong> {{ character.comics_appeared_in }}</p>
+                    <p><strong>Super power:</strong> {{ character.super_power }}</p>
+                </div>
+            </div>
+
+        </div>
+        {% endfor %}
+
+    </div>
+</div>
+
+
+
+{% endblock content %}
